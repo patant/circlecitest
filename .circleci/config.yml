@@ -6,8 +6,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: pwd
-          command: pwd
+          name: mkdir
+          command: mkdir patrik
+  verify:
+    docker:
+      - image: ubuntu
+    steps:
+      - check
       - run:
           name: ls
-          command: ls -la
+          command: ls -l
+      
