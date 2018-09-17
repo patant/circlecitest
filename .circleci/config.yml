@@ -7,12 +7,12 @@ jobs:
       - checkout
       - run:
           name: mkdir
-          command: mkdir testdir
+          command: mkdir /tmp/testdir
       - run:
           name: echo
-          command: echo 'apa' > testdir/apa.txt
+          command: echo 'apa' > /tmp/testdir/apa.txt
       - persist_to_workspace:
-          root: testdir
+          root: /tmp/testdir
           paths:
             - apa.txt
   ls:
