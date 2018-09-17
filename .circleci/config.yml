@@ -11,6 +11,7 @@ jobs:
     docker:
       - image: ubuntu
     steps:
+      - checkout
       - run:
           name: ls
           command: ls -l
