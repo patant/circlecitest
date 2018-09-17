@@ -25,6 +25,12 @@ jobs:
     docker:
       - image: ubuntu
     steps:
+      - run:
+          name: update
+          command: apt-get update
+      - run:
+          name: install ca-certificates
+          command: apt-get install ca-certificates -y
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
           at: /tmp/testdir
