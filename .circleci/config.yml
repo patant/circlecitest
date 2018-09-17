@@ -8,11 +8,10 @@ jobs:
       - run:
           name: mkdir
           command: mkdir patrik
-  build:
+  test:
     docker:
       - image: ubuntu
     steps:
-      - checkout
       - run:
           name: ls
           command: ls -l
