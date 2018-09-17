@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  mkdir:
     docker:
       - image: debian:stretch
     steps:
@@ -8,11 +8,19 @@ jobs:
       - run:
           name: mkdir
           command: mkdir patrik
-  test:
+  ls:
     docker:
       - image: ubuntu
     steps:
       - run:
           name: ls
           command: ls -l
-      
+
+workflows:
+  version: 2
+    mkdir_and_ls:
+      jobs:
+        - mkdir
+        - ls:
+          requires:
+            - mkdir
