@@ -2,7 +2,7 @@ version: 2
 jobs:
   mkdir:
     docker:
-      - image: debian:stretch
+      - image: ubuntu
     steps:
       - checkout
       - run:
