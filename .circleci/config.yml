@@ -7,18 +7,31 @@ jobs:
       - checkout
       - run:
           name: mkdir
-          command: mkdir patrik
+          command: mkdir testdir
+          command: echo 'apa' > testdir/apa.txt
+      - persist_to_workspace:
+          # Must be an absolute path, or relative path from working_directory. This is a directory on the container which is 
+	        # taken to be the root directory of the workspace.
+          root: testdir
+          # Must be relative path from root
+          paths:
+            - apa.txt
   ls:
     docker:
       - image: ubuntu
     steps:
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: /tmp/testdir
       - run:
-          name: ls
-          command: ls -l
+          name: cat
+          command: cat /tmp/testdir/apa.txt
 
 workflows:
   version: 2
   mkdir_and_ls:
     jobs:
       - mkdir
-      - ls
+      - ls:
+          requires:
+            - mkdir
