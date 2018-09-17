@@ -21,6 +21,4 @@ workflows:
   mkdir_and_ls:
     jobs:
       - mkdir
-      - ls:
-        requires:
-          - mkdir
+      - ls
