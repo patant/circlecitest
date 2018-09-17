@@ -8,6 +8,7 @@ jobs:
       - run:
           name: mkdir
           command: mkdir patrik
+  build:
     docker:
       - image: ubuntu
     steps:
