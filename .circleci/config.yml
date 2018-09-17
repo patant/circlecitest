@@ -6,8 +6,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Greeting
-          command: echo Hello, world.
+          name: pwd
+          command: pwd
       - run:
-          name: Print the Current Time
-          command: date
+          name: ls
+          command: ls -la
